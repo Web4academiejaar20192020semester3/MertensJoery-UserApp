@@ -14,7 +14,7 @@ export class UserService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
-    usersUrl: string = 'http://localhost:8080/ChatApp_Web_exploded/Controller?action=';  // URL to web api
+    usersUrl: string = 'http://localhost:8080/JoeryMertensChatApp_Web_exploded/Controller?action=';  // URL to web api
   /** Log a UserService message with the MessageService */
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl + 'GetUsers');
@@ -27,7 +27,7 @@ export class UserService {
   /** PUT: update the hero on the server */
   updateUser(user: User): Observable<any> {
 
-    return this.http.post<User>(this.usersUrl + 'UpdateUser', user);
+    return this.http.post(this.usersUrl + 'UpdateUser', user, httpOptions);
   }
   /**
    * Handle Http operation that failed.
